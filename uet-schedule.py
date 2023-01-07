@@ -5,7 +5,7 @@ from prettytable import PrettyTable
 from utils import periodToTime, tableToData
 
 URL_STUDENT_SUBJECTS = "http://112.137.129.87/qldt/?SinhvienLmh%5BmasvTitle%5D={:s}&SinhvienLmh%5BhotenTitle%5D=&SinhvienLmh%5BngaysinhTitle%5D=&SinhvienLmh%5BlopkhoahocTitle%5D=&SinhvienLmh%5BtenlopmonhocTitle%5D=&SinhvienLmh%5BtenmonhocTitle%5D=&SinhvienLmh%5Bnhom%5D=&SinhvienLmh%5BsotinchiTitle%5D=&SinhvienLmh%5Bghichu%5D=&SinhvienLmh%5Bterm_id%5D=036&SinhvienLmh_page=1&ajax=sinhvien-lmh-grid&fbclid=IwAR02TBvY0hrWOP0hkZ2NmZz-YcYLIBWyAMSBrBa-aCnC2kucLIbvkphYfzA"
-URL_allSubjects = "http://112.137.129.115/tkb/listbylist.php"
+URL_ALL_SUBJECTS = "http://112.137.129.115/tkb/listbylist.php"
 
 def getSubject(studentID):
     r = requests.get(URL_STUDENT_SUBJECTS.format(studentID))
@@ -14,7 +14,7 @@ def getSubject(studentID):
 
 
 def getAllSubjects():
-    subject_infos = BeautifulSoup(requests.get(URL_allSubjects).content, 'html.parser').find_all('table')[3]
+    subject_infos = BeautifulSoup(requests.get(URL_ALL_SUBJECTS).content, 'html.parser').find_all('table')[3]
     headers = {}
     thead = subject_infos.find("tr").find_all("th")
     if thead:
