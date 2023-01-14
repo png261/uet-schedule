@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ```
 ## run
 ```bash
-[$] python uet_schedule.py
+[$] python uet-schedule.py
 
 Nhập mã sinh viên: 22028286
 Tên sinh viên: Nguyễn Hữu Phương
